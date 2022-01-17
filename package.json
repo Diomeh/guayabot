@@ -1,0 +1,25 @@
+{
+  "name": "guayabot",
+  "version": "1.0.0",
+  "description": "A somewhat useless discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diomeh/guayabot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "discord-bot",
+    "guayando"
+  ],
+  "author": "David Urbina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diomeh/guayabot/issues"
+  },
+  "homepage": "https://github.com/Diomeh/guayabot#readme"
+}
