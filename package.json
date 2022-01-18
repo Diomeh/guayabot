@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "A somewhat useless discord bot",
   "main": "index.js",
+  "engines": {
+    "node": "16.X",
+    "npm": "*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon .",
+    "start": "node .",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
-    "dev": "node . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
+    "dev": "npx nodemon . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
     "dc": "node deploy-commands.js"
   },
   "repository": {
