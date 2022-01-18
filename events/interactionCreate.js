@@ -1,3 +1,5 @@
+const logger = require('../logger');
+
 module.exports = {
     name: 'interactionCreate',
     async execute(interaction) {
@@ -7,13 +9,13 @@ module.exports = {
 
         if (!command) return;
 
-        console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction of ${interaction.commandName}.`);
+        logger.info(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction of ${interaction.commandName}.`);
 
         try {
             await command.execute(interaction);
         }
         catch (error) {
-            console.error(error);
+            logger.warn(error);
             await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
         }
     },

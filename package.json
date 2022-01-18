@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node .",
+    "start": "npx nodemon .",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "dev": "node . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
@@ -32,7 +32,8 @@
     "@discordjs/rest": "^0.2.0-canary.0",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
-    "dotenv": "^14.2.0"
+    "dotenv": "^14.2.0",
+    "pino": "^7.0.0-rc.9"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.0",
@@ -41,6 +42,7 @@
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0"
+    "eslint-plugin-promise": "^5.2.0",
+    "nodemon": "^2.0.15"
   }
 }

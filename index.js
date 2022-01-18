@@ -1,5 +1,7 @@
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
+const logger = require('./logger');
+
 require('dotenv').config();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -27,4 +29,4 @@ for (const file of eventFiles) {
     }
 }
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN).then(() => logger.info('Client logged in'));
