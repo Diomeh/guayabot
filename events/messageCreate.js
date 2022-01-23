@@ -15,18 +15,10 @@ module.exports = {
     async execute(message) {
         if (message.author.bot) return;
 
-        // TODO: parse and simplify string to improve handling
-        const content = message.content.toLowerCase();
+        const content = message.content.toLowerCase().replace(/\s+/gm, '_');
 
         // Send auto-reply to message if exists in database
         const quote = await Quote.findOne({ where: { question: content } });
         if (quote !== null) reply(message, content, quote);
-
-        // TODO: find out how to handle emojis
-        if (content === '\u{1F921}') {
-            reply(message, 'don-comedias-emoji', 'Me llama usted, entonces voy, Don comedia es quien yo soy \u{1F921}');
-        } else if (content === '\u{1F446}' || content === '\u261D') {
-            reply(message, 'el-jefe-tribal', 'Arrodíllense y reconozcan al rey, el número uno, el que pone la comida sobre la mesa, el perrote, el dueño de todos los patios, el primo de la piedra, el poder personificado, la fuerza del escudo, EL TIPO, el que enterró al Undertaker\n\nEL JEFE TRIBAL');
-        }
     },
 };

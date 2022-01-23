@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const db            = require('../database');
 
-// noinspection JSCheckFunctionSignatures
 const Quote = db.define('Quote', {
     id        : {
         type         : DataTypes.INTEGER,
@@ -10,18 +9,17 @@ const Quote = db.define('Quote', {
     },
     question  : {
         type     : DataTypes.STRING,
-        notNull  : true,
         allowNull: false,
+        unique   : true,
     },
     answer    : {
         type     : DataTypes.STRING,
-        notNull  : true,
         allowNull: false,
     },
     usageCount: {
-        type   : DataTypes.INTEGER,
-        default: 0,
-        field  : 'usage_count',
+        type        : DataTypes.INTEGER,
+        defaultValue: 0,
+        field       : 'usage_count',
     },
 }, {
     tableName : 'quotes',
