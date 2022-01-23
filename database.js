@@ -1,13 +1,30 @@
 const { Sequelize } = require('sequelize');
-const logger = require('./logger');
+const logger        = require('./logger');
 
-const db = new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, {
-    host   : process.env.HOST,
-    dialect: 'postgres',
-    logging: logger.debug.bind(logger),
-});
+let db;
+const options = {
+    dialect : 'postgres',
+    protocol: 'postgres',
+    logging : logger.debug.bind(logger),
+};
+
+if (process.env.DATABASE_URL) {
+    // We are running in a heroku dyno
+    options.dialectOptions = {
+        sslmode: 'require',
+        ssl: {
+            rejectUnauthorized: false,
+        },
+    };
+    db = new Sequelize(process.env.DATABASE_URL, options);
+} else {
+    // Running in localhost
+    options.host = process.env.HOST;
+    db = new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, options);
+}
 
 try {
+    // Ignore returned promise
     db.authenticate().then();
     logger.info('DB connection successfully established');
 } catch (e) {
