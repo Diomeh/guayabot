@@ -5,12 +5,12 @@ let db;
 const options = {
     dialect : 'postgres',
     protocol: 'postgres',
-    logging : logger.debug.bind(logger),
 };
 
 if (process.env.DATABASE_URL) {
     // We are running in a heroku dyno
     logger.info('App running on heroku dyno');
+    options.logging = false;
     options.dialectOptions = {
         sslmode: 'require',
         ssl: {
@@ -22,6 +22,7 @@ if (process.env.DATABASE_URL) {
     // Running in localhost
     logger.info('App running on localhost');
     options.host = process.env.HOST;
+    options.logging = logger.debug.bind(logger);
     db = new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, options);
 }
 
