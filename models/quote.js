@@ -13,7 +13,7 @@ const Quote = db.define('Quote', {
         unique   : true,
     },
     answer    : {
-        type     : DataTypes.STRING,
+        type     : DataTypes.TEXT,
         allowNull: false,
     },
     usageCount: {

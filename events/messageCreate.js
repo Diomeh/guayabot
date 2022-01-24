@@ -2,6 +2,7 @@ const Quote  = require('../models/quote');
 const logger = require('../logger');
 
 const reply = (message, question, quote) => {
+    // TODO: workaround around 2000 character max length restriction
     // Send response and log
     message.reply(quote.answer)
         .then(() => {
