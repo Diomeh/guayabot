@@ -19,6 +19,15 @@ module.exports = {
 
         // Send auto-reply to message if exists in database
         const quote = await Quote.findOne({ where: { question: content } });
-        if (quote !== null) reply(message, content, quote);
+        if (quote !== null) {
+            reply(message, content, quote);
+        } else if (message.mentions.users.size) {
+            message.mentions.users.each(async user => {
+                // TODO: add mention auto-reply mechanism
+                if (user.tag === 'Diomeh#0072') {
+                    await message.reply('Guayando!');
+                }
+            });
+        }
     },
 };
