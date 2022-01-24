@@ -10,6 +10,7 @@ const options = {
 
 if (process.env.DATABASE_URL) {
     // We are running in a heroku dyno
+    logger.info('App running on heroku dyno');
     options.dialectOptions = {
         sslmode: 'require',
         ssl: {
@@ -19,6 +20,7 @@ if (process.env.DATABASE_URL) {
     db = new Sequelize(process.env.DATABASE_URL, options);
 } else {
     // Running in localhost
+    logger.info('App running on localhost');
     options.host = process.env.HOST;
     db = new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, options);
 }

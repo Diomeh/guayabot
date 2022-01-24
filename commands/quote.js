@@ -27,7 +27,7 @@ module.exports = {
             logger.info(`'${interaction.user.tag}' created 'quote::id::${quote.id}'`);
             await interaction.reply(`Quote '${question}' created`);
         }).catch(async error => {
-            logger.info(`'${interaction.user.tag}' triggered an error while creating a quote`, error);
+            logger.error(`'${interaction.user.tag}' triggered an error while creating a quote`, error);
             await interaction.reply('Could not create quote');
         });
     },
