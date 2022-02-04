@@ -6,7 +6,9 @@ const reply = (message, question, quote) => {
     // Send response and log
     message.reply(quote.answer)
         .then(() => {
-            quote.increment('usage_count').then(q => logger.info(`quote::${q.id} usage_count incremented to ${q.usageCount}`));
+            quote.increment('usage_count')
+                .then(q => logger.info(`quote::${q.id} usage_count incremented to ${q.usageCount}`))
+                .catch(logger.error);
             logger.info(`Replying to ${message.author.tag} on ${question}`);
         }).catch(logger.error);
 };
