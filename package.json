@@ -40,7 +40,8 @@
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "pino": "^7.0.0-rc.9",
-    "sequelize": "^6.13.0"
+    "sequelize": "^6.13.0",
+    "minimist": ">=1.2.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.0",
