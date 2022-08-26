@@ -15,7 +15,7 @@ const data = new SlashCommandBuilder()
             .setRequired(false));
 
 module.exports = {
-    data: data,
+    data,
     async execute(interaction) {
         // TODO: replace manual indexing with buttons/interaction
         let start = interaction.options.getInteger('start', false) || 0;
@@ -27,7 +27,7 @@ module.exports = {
 
         const quotes = await Quote.findAll({
             offset: start,
-            limit : limit,
+            limit,
         });
 
         // // Here we feed the quotes to an embed
@@ -43,7 +43,7 @@ module.exports = {
                         size: 16,
                     }),
                 },
-                fields   : fields,
+                fields,
                 timestamp: new Date(),
             }],
         });
