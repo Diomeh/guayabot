@@ -9,11 +9,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node .",
-    "lint": "eslint .",
+    "start": "node src/",
+    "lint": "eslint src/",
     "lint-fix": "eslint --fix .",
-    "dev": "npx nodemon . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
-    "dc": "node deploy-commands.js"
+    "dev": "npx nodemon src/ | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
+    "dc": "node src/deploy-commands.js"
   },
   "repository": {
     "type": "git",

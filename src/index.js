@@ -21,8 +21,8 @@ const client = new Client({
 });
 
 client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('src/commands').filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync('src/events').filter(file => file.endsWith('.js'));
 
 // Require all commands
 for (const file of commandFiles) {
