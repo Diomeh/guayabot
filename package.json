@@ -4,7 +4,7 @@
   "description": "A somewhat useless discord bot",
   "main": "index.js",
   "engines": {
-    "node": "16.X",
+    "node": "18.X",
     "npm": "*"
   },
   "scripts": {
@@ -32,25 +32,26 @@
   },
   "homepage": "https://github.com/Diomeh/guayabot#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.11.0",
-    "@discordjs/rest": "^0.2.0-canary.0",
-    "discord-api-types": "^0.26.1",
-    "discord.js": "^13.6.0",
-    "dotenv": "^14.2.0",
-    "pg": "^8.7.1",
+    "@discordjs/builders": "^1.2.0",
+    "@discordjs/rest": "^1.1.0",
+    "discord-api-types": "^0.37.5",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.1",
+    "minimist": "^1.2.6",
+    "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
-    "pino": "^7.0.0-rc.9",
-    "sequelize": "^6.13.0",
-    "minimist": ">=1.2.6"
+    "pino": "^8.4.2",
+    "sequelize": "^6.21.4"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^5.10.0",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.22.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "nodemon": "^2.0.15"
+    "eslint-plugin-promise": "^6.0.1",
+    "nodemon": "^2.0.19",
+    "pino-pretty": "^9.1.0"
   }
 }
