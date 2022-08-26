@@ -9,7 +9,7 @@ const data = new SlashCommandBuilder()
             .setRequired(true));
 
 module.exports = {
-    data: data,
+    data,
     async execute(interaction) {
         const input = interaction.options.getString('input');
         await interaction.reply(input);
