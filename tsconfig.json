@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "CommonJS",
+        "strict": true,
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": false,
+        "baseUrl": ".",
+        "outDir": "./dist",
+        "allowJs": true,
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "lib": ["esnext", "scripthost"]
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
