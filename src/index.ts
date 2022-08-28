@@ -52,6 +52,7 @@ const client = new ExtendedClient({
         GatewayIntentBits.DirectMessages,
         GatewayIntentBits.DirectMessageReactions,
         GatewayIntentBits.DirectMessageTyping,
+        GatewayIntentBits.MessageContent,
     ],
 });
 
