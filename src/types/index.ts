@@ -10,7 +10,7 @@ export declare type Command = {
 export declare type Event = {
     name: string;
     once?: boolean;
-    execute(interaction: any): Promise<void> | void;
+    execute(...args: Array<any>): Promise<void> | void;
 };
 
 export declare type Logger = {
