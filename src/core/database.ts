@@ -30,11 +30,15 @@ if (process.env.NODE_ENV === 'prod') {
     db = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, options);
 }
 
-try {
-    db.authenticate().then(() => logger.info('Database connected.'));
-} catch (e) {
-    logger.error('Unable to connect to the DB');
-    logger.error((e as Error).message);
-}
+db.authenticate()
+    .then(() => logger.info('Database connected.'))
+    .catch(error => {
+        logger.error('Unable to connect to the DB');
+        logger.error(error);
+
+        // TODO: send message to discord channel
+
+        process.exit(1);
+    });
 
 export default db;
