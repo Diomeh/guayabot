@@ -1,4 +1,4 @@
-import { DataTypes, Model, InitOptions } from 'sequelize/types';
+import { DataTypes, Model, InitOptions } from 'sequelize';
 import { db } from '@/core';
 
 class Quote extends Model {

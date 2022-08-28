@@ -43,7 +43,7 @@
     "object-curly-spacing": ["warn", "always"],
     "prefer-const": "error",
     "quotes": ["warn", "single"],
-    "indent": ["warn", 4],
+    "indent": ["warn", 4, { "SwitchCase": 1 }],
     "semi": ["warn", "always"],
     "space-before-blocks": "warn",
     "space-before-function-paren": ["warn", {

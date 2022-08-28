@@ -9,11 +9,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=prod ts-node --files ./src/index.ts",
-    "lint": "eslint src/**/*",
-    "lint-fix": "eslint --fix src/**/*",
+    "start": "NODE_ENV=prod pnpm dc && NODE_ENV=prod ts-node --files ./src/index.ts",
     "dev": "NODE_ENV=dev npx nodemon . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
-    "dc": "ts-node --files ./src/core/deployCommands.ts"
+    "dc": "NODE_ENV=prod ts-node --files ./src/index.ts -- --deploy all --exit",
+    "lint": "eslint src/**/*",
+    "lint-fix": "eslint --fix src/**/*"
   },
   "repository": {
     "type": "git",
