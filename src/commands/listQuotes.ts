@@ -8,6 +8,24 @@ type QuoteField = {
     inline: boolean;
 };
 
+function buildEmbedFields(quotes: Array<Quote>|null): Array<QuoteField> {
+    const fields: Array<QuoteField> = [];
+
+    if (quotes === null || quotes.length === 0) {
+        return fields;
+    }
+
+    quotes.forEach(quote => {
+        fields.push({
+            name: quote.question.replace('_', '-'),
+            value: quote.answer.length < 50 ? quote.answer : quote.answer.slice(0, 50) + '...',
+            inline: false,
+        });
+    });
+
+    return fields;
+}
+
 const data = new SlashCommandBuilder()
     .setName('listq')
     .setDescription('Muestra todos los mensajes configurados para auto-reply')
@@ -58,23 +76,5 @@ const command: Command = {
         });
     },
 };
-
-function buildEmbedFields(quotes: Array<Quote>|null): Array<QuoteField> {
-    const fields: Array<QuoteField> = [];
-
-    if (quotes === null || quotes.length === 0) {
-        return fields;
-    }
-
-    for (const key in quotes) {
-        fields.push({
-            name  : quotes[key].question.replace('_', '-'),
-            value : quotes[key].answer.length < 50 ? quotes[key].answer : quotes[key].answer.substr(0, 50) + '...',
-            inline: false,
-        });
-    }
-
-    return fields;
-}
 
 export default command;

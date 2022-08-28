@@ -17,7 +17,7 @@ const data = new SlashCommandBuilder()
 
 const command: Command = {
     data,
-    async execute(interaction) {
+    execute(interaction) {
         const options = (interaction.options as CommandInteractionOptionResolver);
 
         const question = options.getString('question');

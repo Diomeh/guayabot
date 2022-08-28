@@ -4,7 +4,7 @@ export declare type CommandBuilder = Omit<SlashCommandBuilder, 'addSubcommand' |
 
 export declare type Command = {
     data: CommandBuilder;
-    execute(interaction: CommandInteraction): Promise<void>;
+    execute(interaction: CommandInteraction): Promise<void>|void;
 };
 
 export declare type Event = {
