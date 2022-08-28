@@ -6,8 +6,15 @@ import { GatewayIntentBits } from 'discord.js';
 import { ExtendedClient, logger, CommandDeployer } from '@/core';
 
 if (process.argv.includes('--deploy')) {
-    const index = process.argv.indexOf('--deploy');
-    const deploy = process.argv[index + 1];
+    const index: number = process.argv.indexOf('--deploy');
+    let deploy: string, id: string|undefined;
+
+    // enforce id if --deploy guild is used with syntax --deploy guild=id
+    if (process.argv[index + 1].includes('=')) {
+        [deploy, id] = process.argv[index + 1].split('=');
+    } else {
+        deploy = process.argv[index + 1];
+    }
 
     switch (deploy) {
         case 'global':
@@ -15,7 +22,7 @@ if (process.argv.includes('--deploy')) {
             break;
 
         case 'guild': {
-            const guildId = process.argv[index + 2] || process.env.GUILD_ID;
+            const guildId = id || process.env.GUILD_ID;
             CommandDeployer.deployGuildCommands(guildId);
             break;
         }
