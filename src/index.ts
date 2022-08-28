@@ -6,6 +6,8 @@ import { ExtendedClient, logger } from '@/core';
 
 import 'dotenv/config';
 
+logger.info(`Application started in '${process.env.NODE_ENV}' mode.`);
+
 const client = new ExtendedClient({
     intents: [
         GatewayIntentBits.Guilds,

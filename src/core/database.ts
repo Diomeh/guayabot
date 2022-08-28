@@ -8,7 +8,6 @@ const options: Options = {
 };
 
 if (process.env.NODE_ENV === 'prod') {
-    logger.info('App running on heroku dyno');
     Object.assign(options, {
         logging: false,
         dialectOptions: {
@@ -21,7 +20,6 @@ if (process.env.NODE_ENV === 'prod') {
 
     db = new Sequelize(process.env.DB_URL, options);
 } else {
-    logger.info('App running on localhost');
     Object.assign(options, {
         host: process.env.HOST,
         logging: logger.debug.bind(logger),
