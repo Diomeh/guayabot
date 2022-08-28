@@ -3,7 +3,7 @@ import pino from 'pino';
 
 let logger: Logger;
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'prod') {
     logger = {
         info: (message: string) => console.log(message),
         warn: (message: string) => console.warn(message),

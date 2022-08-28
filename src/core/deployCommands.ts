@@ -11,8 +11,8 @@ for (const key of Object.keys(commands)) {
     jsonCommands.push(command.data.toJSON());
 }
 
-const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN || '');
+const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
 
-rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID || '', process.env.GUILD_ID || ''), { body: jsonCommands })
+rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body: jsonCommands })
     .then(() => logger.info('Successfully registered application commands.'))
     .catch(logger.error);
