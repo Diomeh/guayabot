@@ -1,7 +1,7 @@
-import { CommandInteractionOptionResolver, SlashCommandBuilder } from "discord.js";
-import { Quote } from "@/models";
-import { logger } from "@/core";
-import { Command } from "@/types";
+import { CommandInteractionOptionResolver, SlashCommandBuilder } from 'discord.js';
+import { Quote } from '@/models';
+import { logger } from '@/core';
+import { Command } from '@/types';
 
 const data = new SlashCommandBuilder()
     .setName('quote')
@@ -36,3 +36,5 @@ const command: Command = {
         });
     },
 };
+
+export default command;

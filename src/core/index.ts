@@ -12,5 +12,5 @@ export class ExtendedClient extends Client {
         super(options);
         this.commands = new Collection();
         this.events = new Collection();
-    };    
-};    
+    };
+};

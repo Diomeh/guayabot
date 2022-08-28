@@ -1,11 +1,11 @@
-import { ClientUser, CommandInteractionOptionResolver, SlashCommandBuilder } from "discord.js";
+import { ClientUser, CommandInteractionOptionResolver, SlashCommandBuilder } from 'discord.js';
 import { Quote } from '@/models';
 import { Command } from '@/types';
 
-type QuoteField = { 
+type QuoteField = {
     name: string;
-    value: string; 
-    inline: boolean; 
+    value: string;
+    inline: boolean;
 };
 
 const data = new SlashCommandBuilder()
@@ -60,7 +60,6 @@ const command: Command = {
 };
 
 function buildEmbedFields(quotes: Array<Quote>|null): Array<QuoteField> {
-
     const fields: Array<QuoteField> = [];
 
     if (quotes === null || quotes.length === 0) {

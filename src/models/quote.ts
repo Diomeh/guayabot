@@ -1,5 +1,5 @@
-import { DataTypes, Model, InitOptions } from "sequelize/types";
-import { db } from "@/core";
+import { DataTypes, Model, InitOptions } from 'sequelize/types';
+import { db } from '@/core';
 
 class Quote extends Model {
     declare id          : number;
