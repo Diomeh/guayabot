@@ -1,10 +1,9 @@
 // This is needed to prevent the compiler from complaining about the missing type definitions using the @ symbol.
 import './paths';
+import 'dotenv/config';
 
 import { GatewayIntentBits } from 'discord.js';
 import { ExtendedClient, logger } from '@/core';
-
-import 'dotenv/config';
 
 logger.info(`Application started in '${process.env.NODE_ENV}' mode.`);
 

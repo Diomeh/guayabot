@@ -14,6 +14,7 @@ declare global {
             readonly DB_USERNAME: string;
             readonly DB_PASSWORD: string;
             readonly DB_URL     : string;
+            readonly DB_HOST    : string;
         };
     };
 };

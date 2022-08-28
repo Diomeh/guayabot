@@ -2,18 +2,18 @@
   "name": "guayabot",
   "version": "1.0.0",
   "description": "A somewhat useless discord bot",
-  "main": "index.ts",
+  "main": "./src/index.ts",
   "engines": {
     "node": "18.X",
     "npm": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node .",
+    "start": "NODE_ENV=prod ts-node --files ./src/index.ts",
     "lint": "eslint src/**/*",
     "lint-fix": "eslint --fix src/**/*",
-    "dev": "npx nodemon . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
-    "dc": "ts-node src/deployCommands.ts"
+    "dev": "NODE_ENV=dev npx nodemon . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss",
+    "dc": "ts-node --files ./src/core/deployCommands.ts"
   },
   "repository": {
     "type": "git",

@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'prod') {
     db = new Sequelize(process.env.DB_URL, options);
 } else {
     Object.assign(options, {
-        host: process.env.HOST,
+        host: process.env.DB_HOST || process.env.HOST,
         logging: logger.debug.bind(logger),
     });
 
