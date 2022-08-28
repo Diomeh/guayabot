@@ -9,7 +9,8 @@ export declare type Command = {
 
 export declare type Event = {
     name: string;
-    execute(interaction: any): Promise<void>;
+    once?: boolean;
+    execute(interaction: any): Promise<void> | void;
 };
 
 export declare type Logger = {

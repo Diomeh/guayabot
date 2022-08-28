@@ -1,7 +1,8 @@
-const Quote  = require('../models/quote');
-const logger = require('../logger');
+import { Event } from '@/types';
+import { logger } from '@/core';
+import { Quote } from '@/models';
 
-const reply = (message, question, quote) => {
+const reply = (message: any, question: string, quote: Quote) => {
     // TODO: workaround around 2000 character max length restriction
     // Send response and log
     message.reply(quote.answer)
@@ -13,7 +14,7 @@ const reply = (message, question, quote) => {
         }).catch(logger.error);
 };
 
-module.exports = {
+const event: Event = {
     name: 'messageCreate',
     async execute(message) {
         if (message.author.bot) return;
@@ -25,7 +26,7 @@ module.exports = {
         if (quote !== null) {
             reply(message, content, quote);
         } else if (message.mentions.users.size) {
-            message.mentions.users.each(async user => {
+            message.mentions.users.each(async (user: any) => {
                 // TODO: add mention auto-reply mechanism
                 if (user.tag === 'Diomeh#0072') {
                     await message.reply('Guayando!');
@@ -34,3 +35,5 @@ module.exports = {
         }
     },
 };
+
+export default event;
