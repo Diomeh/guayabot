@@ -1,6 +1,7 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const Quote                   = require('../models/quote');
-const logger                  = require('../logger');
+import { CommandInteractionOptionResolver, SlashCommandBuilder } from 'discord.js';
+import { Quote } from '@/models';
+import { logger } from '@/core';
+import { Command } from '@/types';
 
 const data = new SlashCommandBuilder()
     .setName('quote')
@@ -14,11 +15,13 @@ const data = new SlashCommandBuilder()
             .setDescription('the auto-reply text')
             .setRequired(true));
 
-module.exports = {
+const command: Command = {
     data,
     async execute(interaction) {
-        const question = interaction.options.getString('question');
-        const answer   = interaction.options.getString('answer');
+        const options = (interaction.options as CommandInteractionOptionResolver);
+
+        const question = options.getString('question');
+        const answer   = options.getString('answer');
 
         Quote.create({
             question,
@@ -33,3 +36,5 @@ module.exports = {
         });
     },
 };
+
+export default command;

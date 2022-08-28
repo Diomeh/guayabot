@@ -1,5 +1,10 @@
 {
+    "watch": ["src", "tsconfig.json"],
+    "ext": ".js,.ts",
+    "igonre": "node_modules",
+    "exec": "ts-node --files ./src/index.ts",
     "events": {
-        "start": "node -e console.clear()"
+        "restart": "notify-send 'Guayabot restarted' -a 'node.js'",
+        "crash": "notify-send 'Guayabot crashed' -a 'node.js'"
     }
 }

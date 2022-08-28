@@ -1,6 +1,7 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+import { SlashCommandBuilder } from 'discord.js';
+import { Command } from '@/types';
 
-module.exports = {
+const command: Command = {
     data: new SlashCommandBuilder()
         .setName('user')
         .setDescription('Replies with user information.'),
@@ -8,3 +9,5 @@ module.exports = {
         await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
     },
 };
+
+export default command;

@@ -1,6 +1,7 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+import { SlashCommandBuilder } from 'discord.js';
+import { Command } from '@/types';
 
-module.exports = {
+const command: Command = {
     data: new SlashCommandBuilder()
         .setName('guayando')
         .setDescription('guayando'),
@@ -8,3 +9,5 @@ module.exports = {
         await interaction.reply('guayando');
     },
 };
+
+export default command;
